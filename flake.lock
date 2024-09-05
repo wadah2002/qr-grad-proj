@@ -1,0 +1,40 @@
+{
+  "nodes": {
+    "flake-schemas": {
+      "locked": {
+        "lastModified": 1721999734,
+        "narHash": "sha256-G5CxYeJVm4lcEtaO87LKzOsVnWeTcHGKbKxNamNWgOw=",
+        "rev": "0a5c42297d870156d9c57d8f99e476b738dcd982",
+        "revCount": 75,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/flake-schemas/0.1.5/0190ef2f-61e0-794b-ba14-e82f225e55e6/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/DeterminateSystems/flake-schemas/%2A"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1725407940,
+        "narHash": "sha256-tiN5Rlg/jiY0tyky+soJZoRzLKbPyIdlQ77xVgREDNM=",
+        "rev": "6f6c45b5134a8ee2e465164811e451dcb5ad86e3",
+        "revCount": 634809,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/NixOS/nixpkgs/0.2405.634809%2Brev-6f6c45b5134a8ee2e465164811e451dcb5ad86e3/0191c142-67a7-76c1-95c4-7fb453e21571/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/NixOS/nixpkgs/0.2405.%2A"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-schemas": "flake-schemas",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
