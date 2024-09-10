@@ -12,6 +12,6 @@ qr = qrcode.QRCode(
 qr.make(fit=True)
 qr.add_data("https://www.ju.edu.sa")
 
-img = qr.make_image(fill_color=(255, 255, 255), back_color=(0, 0, 0))
+img = qr.make_image(fill_color=(255, 55, 55), back_color=(255, 0, 0))
 
 img.save("test2.svg")
