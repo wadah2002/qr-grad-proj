@@ -1,5 +1,8 @@
 import qrcode
 import qrcode.image.svg
+from qrcode.image.pilimages import PilImage
+from qrcode.image.svg import CircleModuleDrawer
+
 
 qr = qrcode.QRCode(
     version=1,
@@ -12,7 +15,8 @@ qr = qrcode.QRCode(
 qr.make(fit=True)
 qr.add_data("https://www.ju.edu.sa")
 
-img = qr.make_image(fill_color=(255, 100, 100), back_color=(255, 0, 0))
+img = qr.make_image(image_factory=CircleModuleDrawer(), 
+fill_color=(255, 100, 100), back_color=(255, 0, 0))
 
 img.save("test2.svg")
 ##testing...
