@@ -1,277 +1,158 @@
 <!doctype html>
 <html data-theme="light">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>QR Code Generator</title>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-    </head>
 
-    <body>
-        <nav
-            class="navbar is-link"
-            role="navigation"
-            aria-label="main navigation"
-        >
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <svg
-                        width="640"
-                        heigsht="260"
-                        viewBox="0 0 340 260"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            fill="white"
-                            class="bd-svg-black"
-                            d="m100.00244 36h-44a20.02229 20.02229 0 0 0 -20 20v44a20.02229 20.02229 0 0 0 20 20h44a20.02229 20.02229 0 0 0 20-20v-44a20.02229 20.02229 0 0 0 -20-20zm-4 60h-36v-36h36z"
-                        />
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            fill="white"
-                            class="bd-svg-black"
-                            d="m100.00244 136h-44a20.02229 20.02229 0 0 0 -20 20v44a20.02229 20.02229 0 0 0 20 20h44a20.02229 20.02229 0 0 0 20-20v-44a20.02229 20.02229 0 0 0 -20-20zm-4 60h-36v-36h36z"
-                        />
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            fill="white"
-                            class="bd-svg-black"
-                            d="m200.00244 36h-44a20.02229 20.02229 0 0 0 -20 20v44a20.02229 20.02229 0 0 0 20 20h44a20.02229 20.02229 0 0 0 20-20v-44a20.02229 20.02229 0 0 0 -20-20zm-4 60h-36v-36h36z"
-                        />
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            fill="white"
-                            class="bd-svg-black"
-                            d="m148.00244 184a12.0006 12.0006 0 0 0 12-12v-24a12 12 0 0 0 -24 0v24a12.0006 12.0006 0 0 0 12 12z"
-                        />
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            fill="white"
-                            class="bd-svg-black"
-                            d="m208.00244 152h-12v-4a12 12 0 0 0 -24 0v48h-24a12 12 0 1 0 0 24h36a12.0006 12.0006 0 0 0 12-12v-32h12a12 12 0 0 0 0-24z"
-                        />
-                    </svg>
-                    <span class="has-text-weight-bold">QR Code Generator</span>
-                </a>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-                <a
-                    role="button"
-                    class="navbar-burger"
-                    aria-label="menu"
-                    aria-expanded="false"
-                    data-target="navbarBasicExample"
-                >
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
+<body>
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <svg width="640" heigsht="260" viewBox="0 0 340 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="white" class="bd-svg-black"
+                        d="m100.00244 36h-44a20.02229 20.02229 0 0 0 -20 20v44a20.02229 20.02229 0 0 0 20 20h44a20.02229 20.02229 0 0 0 20-20v-44a20.02229 20.02229 0 0 0 -20-20zm-4 60h-36v-36h36z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="white" class="bd-svg-black"
+                        d="m100.00244 136h-44a20.02229 20.02229 0 0 0 -20 20v44a20.02229 20.02229 0 0 0 20 20h44a20.02229 20.02229 0 0 0 20-20v-44a20.02229 20.02229 0 0 0 -20-20zm-4 60h-36v-36h36z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="white" class="bd-svg-black"
+                        d="m200.00244 36h-44a20.02229 20.02229 0 0 0 -20 20v44a20.02229 20.02229 0 0 0 20 20h44a20.02229 20.02229 0 0 0 20-20v-44a20.02229 20.02229 0 0 0 -20-20zm-4 60h-36v-36h36z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="white" class="bd-svg-black"
+                        d="m148.00244 184a12.0006 12.0006 0 0 0 12-12v-24a12 12 0 0 0 -24 0v24a12.0006 12.0006 0 0 0 12 12z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="white" class="bd-svg-black"
+                        d="m208.00244 152h-12v-4a12 12 0 0 0 -24 0v48h-24a12 12 0 1 0 0 24h36a12.0006 12.0006 0 0 0 12-12v-32h12a12 12 0 0 0 0-24z" />
+                </svg>
+                <span class="has-text-weight-bold">QR Code Generator</span>
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item"> Contact Us </a>
+
+                <a class="navbar-item"> About </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item"> Contact Us </a>
-
-                    <a class="navbar-item"> About </a>
-                </div>
-
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons has-addons">
-                            <button class="button is-outlined">
-                                <span class="icon">
-                                    <i
-                                        class="fas fa-lg fa-language"
-                                        aria-hidden="true"
-                                    ></i>
-                                </span>
-                            </button>
-                            <button class="button is-outlined">
-                                <span class="icon">
-                                    <i
-                                        class="fas fa-lg fa-moon"
-                                        aria-hidden="true"
-                                    ></i>
-                                </span>
-                            </button>
-                        </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons has-addons">
+                        <button class="button is-outlined">
+                            <span class="icon">
+                                <i class="fas fa-lg fa-language" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                        <button class="button is-outlined">
+                            <span class="icon">
+                                <i class="fas fa-lg fa-moon" aria-hidden="true"></i>
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <section class="section">
-            <div class="container">
-                <p class="subtitle">
-                    Pick the <strong>QR Code</strong> type that you would like
-                    to generate.
-                </p>
+    <section class="section">
+        <div class="container">
+            <p class="subtitle">
+                Pick the <strong>QR Code</strong> type that you would like
+                to generate.
+            </p>
 
-                <div class="columns">
-                    <div class="column">
-                        <div class="box">
-                            <div class="tabs">
-                                <ul>
-                                    <li
-                                        class="{% if active=='text' %} is-active {% endif %}"
-                                    >
-                                        <a href="/">
-                                            <span class="icon is-small"
-                                                ><i
-                                                    class="fas fa-file-text"
-                                                    aria-hidden="true"
-                                                ></i></span
-                                            >Text</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="{% if active=='url' %} is-active {% endif %}"
-                                    >
-                                        <a href="/url">
-                                            <span class="icon is-small"
-                                                ><i
-                                                    class="fas fa-image"
-                                                    aria-hidden="true"
-                                                ></i></span
-                                            >URL</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="{% if active=='email' %} is-active {% endif %}"
-                                    >
-                                        <a href="/email">
-                                            <span class="icon is-small"
-                                                ><i
-                                                    class="fas fa-envelope"
-                                                    aria-hidden="true"
-                                                ></i></span
-                                            >E-Mail</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="{% if active=='contact' %} is-active {% endif %}"
-                                    >
-                                        <a href="/contact">
-                                            <span class="icon is-small"
-                                                ><i
-                                                    class="fas fa-address-book"
-                                                    aria-hidden="true"
-                                                ></i></span
-                                            >Contact</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="{% if active=='wifi' %} is-active {% endif %}"
-                                    >
-                                        <a href="/wifi">
-                                            <span class="icon is-small"
-                                                ><i
-                                                    class="fas fa-wifi"
-                                                    aria-hidden="true"
-                                                ></i></span
-                                            >WIFI</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="{% if active=='image' %} is-active {% endif %}"
-                                    >
-                                        <a href="/image">
-                                            <span class="icon is-small"
-                                                ><i
-                                                    class="fas fa-image"
-                                                    aria-hidden="true"
-                                                ></i></span
-                                            >Image</a
-                                        >
-                                    </li>
-                                    <li
-                                        class="{% if active=='social' %} is-active {% endif %}"
-                                    >
-                                        <a href="/social">
-                                            <span class="icon is-small"
-                                                ><i
-                                                    class="fas fa-brands fa-twitter"
-                                                    aria-hidden="true"
-                                                ></i></span
-                                            >Social</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {% block content %}{% endblock %}
-
-                            <button
-                                class="button is-medium is-primary is-fullwidth"
-                            >
-                                <span class="icon"
-                                    ><i class="fas fa-check"></i
-                                ></span>
-                                <span>Submit</span>
-                            </button>
+            <div class="columns">
+                <div class="column">
+                    <div class="box">
+                        <div class="tabs">
+                            <ul>
+                                <li class="{% if active=='text' %} is-active {% endif %}">
+                                    <a href="/">
+                                        <span class="icon is-small"><i class="fas fa-file-text"
+                                                aria-hidden="true"></i></span>Text</a>
+                                </li>
+                                <li class="{% if active=='url' %} is-active {% endif %}">
+                                    <a href="/url">
+                                        <span class="icon is-small"><i class="fas fa-image"
+                                                aria-hidden="true"></i></span>URL</a>
+                                </li>
+                                <li class="{% if active=='email' %} is-active {% endif %}">
+                                    <a href="/email">
+                                        <span class="icon is-small"><i class="fas fa-envelope"
+                                                aria-hidden="true"></i></span>E-Mail</a>
+                                </li>
+                                <li class="{% if active=='contact' %} is-active {% endif %}">
+                                    <a href="/contact">
+                                        <span class="icon is-small"><i class="fas fa-address-book"
+                                                aria-hidden="true"></i></span>Contact</a>
+                                </li>
+                                <li class="{% if active=='wifi' %} is-active {% endif %}">
+                                    <a href="/wifi">
+                                        <span class="icon is-small"><i class="fas fa-wifi"
+                                                aria-hidden="true"></i></span>WIFI</a>
+                                </li>
+                                <li class="{% if active=='image' %} is-active {% endif %}">
+                                    <a href="/image">
+                                        <span class="icon is-small"><i class="fas fa-image"
+                                                aria-hidden="true"></i></span>Image</a>
+                                </li>
+                                <li class="{% if active=='social' %} is-active {% endif %}">
+                                    <a href="/social">
+                                        <span class="icon is-small"><i class="fas fa-brands fa-twitter"
+                                                aria-hidden="true"></i></span>Social</a>
+                                </li>
+                            </ul>
                         </div>
+
+                        {% block content %}{% endblock %}
+
                     </div>
+                </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by3">
-                                    <img
-                                        src="{{ url_for('static', filename='sample.svg') }}"
-                                        alt="Placeholder image"
-                                    />
-                                </figure>
-                            </div>
-                            <div class="card-content"></div>
-                            <footer class="card-footer">
-                                <a href="#" class="card-footer-item">
-                                    <span class="icon"
-                                        ><i class="fas fa-download"></i
-                                    ></span>
-                                    <span>Save PNG</span>
-                                </a>
-                                <a href="#" class="card-footer-item">
-                                    <span class="icon"
-                                        ><i class="fas fa-download"></i
-                                    ></span>
-                                    <span>Save SVG</span>
-                                </a>
-                            </footer>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="{{ url_for('static', filename='sample.png') }}" alt="Placeholder image" />
+                            </figure>
                         </div>
+                        <div class="card-content"></div>
+                        <footer class="card-footer">
+                            <a href="#" class="card-footer-item">
+                                <span class="icon"><i class="fas fa-download"></i></span>
+                                <span>Save PNG</span>
+                            </a>
+                            <a href="#" class="card-footer-item">
+                                <span class="icon"><i class="fas fa-download"></i></span>
+                                <span>Save SVG</span>
+                            </a>
+                        </footer>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="footer">
-            <div class="content has-text-centered">
-                <p>
-                    The source code is licensed
-                    <a href="http://opensource.org/licenses/mit-license.php"
-                        >MIT</a
-                    >. The website content is licensed
-                    <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-                        >CC BY NC SA 4.0</a
-                    >.
-                </p>
-            </div>
-        </footer>
-    </body>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed
+                <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
 </html>
