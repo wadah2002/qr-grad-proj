@@ -1,56 +1,66 @@
 {% extends "base.html" %}
 
 {% block content %}
+<form method="POST" action="/contact">
+    <div class="columns">
+        <div class="column">
+            <div class="field">
+                <div class="control">
+                    <input class="input" name="contactFname" type="text" placeholder="First Name" />
+                </div>
+            </div>
+        </div>
 
-<div class="columns">
-    <div class="column">
-        <div class="field">
-            <div class="control">
-                <input class="input" type="text" placeholder="First Name" />
+        <div class="column">
+            <div class="field">
+                <div class="control">
+                    <input class="input" name="contactLname" type="text" placeholder="Last Name" />
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="column">
-        <div class="field">
-            <div class="control">
-                <input class="input" type="text" placeholder="Last Name" />
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
-
-<div class="field">
-    <div class="control">
-        <input class="input" type="number" placeholder="Mobile" />
-    </div>
-</div>
-
-<div class="field">
-    <div class="control">
-        <input class="input" type="number" placeholder="Phone" />
-    </div>
-</div>
-
-
-<div class="columns">
-    <div class="column">
-        <div class="field">
-            <div class="control">
-        <input class="input" type="text" placeholder="Company" />
-            </div>
+    <div class="field">
+        <div class="control">
+            <input class="input" name="contactMobile" type="number" placeholder="Mobile" />
         </div>
     </div>
 
-    <div class="column">
-        <div class="field">
-            <div class="control">
-        <input class="input" type="email" placeholder="Email" />
+    <div class="field">
+        <div class="control">
+            <input class="input" name="contactPhone" type="number" placeholder="Phone" />
+        </div>
+    </div>
+
+
+    <div class="columns">
+        <div class="column">
+            <div class="field">
+                <div class="control">
+                    <input class="input" name="contactCompany" type="text" placeholder="Company" />
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="field">
+                <div class="control">
+                    <input class="input" name="contactEmail" type="email" placeholder="Email" />
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="field">
+        <div class="control">
+            <button type="submit" class="button is-medium is-primary is-fullwidth">
+                <span class="icon"><i class="fas fa-check"></i></span>
+                <span>Submit</span>
+            </button>
+        </div>
+    </div>
+</form>
 {% endblock %}

@@ -1,26 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="field">
-<!--     <label class="label">To:</label> -->
-    <p class="control has-icons-left has-icons-right">
-        <input class="input" type="email" placeholder="To" />
-        <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-        </span>
-    </p>
-</div>
+<form method="POST" action="/email">
+    <div class="field">
+        <!--     <label class="label">To:</label> -->
+        <p class="control has-icons-left has-icons-right">
+            <input class="input" name="address" type="email" placeholder="To" />
+            <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+            </span>
+        </p>
+    </div>
 
-<div class="field">
-<!--     <label class="label">Email Title</label> -->
-    <input class="input" type="text" placeholder="Subject" />
+    <div class="field">
+        <!--     <label class="label">Email Title</label> -->
+        <input class="input" name="subject" type="text" placeholder="Subject" />
 
-</div>
+    </div>
 
-<div class="field">
-  <textarea class="textarea" rows="10" placeholder="Message body"></textarea>
-</div>
+    <div class="field">
+        <textarea class="textarea" name="msg" rows="10" placeholder="Message body"></textarea>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <button type="submit" class="button is-medium is-primary is-fullwidth">
+                <span class="icon"><i class="fas fa-check"></i></span>
+                <span>Submit</span>
+            </button>
+        </div>
+    </div>
+</form>
 {% endblock %}

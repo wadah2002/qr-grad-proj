@@ -4,7 +4,13 @@
 <div class="field">
     <label class="label">Enter URL:</label>
     <div class="control">
-        <input class="input" type="text" placeholder="e.g. https://www.ju.edu.sa"/>
+        <form method="POST" action="/url">
+            <input class="input" name="urlInput" type="text" placeholder="e.g. https://www.ju.edu.sa" />
+            <button type="submit" class="button is-medium is-primary is-fullwidth">
+                <span class="icon"><i class="fas fa-check"></i></span>
+                <span>Submit</span>
+            </button>
+        </form>
     </div>
 </div>
 {% endblock %}
