@@ -44,7 +44,7 @@ def contact_page():
         contactCompany = request.form.get("contactCompany")
         contactEmail = request.form.get("contactEmail")
 
-        data = f""
+        data = f"BEGIN:VCARD;VERSION:3.0;FN:{contactFname} {contactLname};N:{contactLname};{contactFname};;;TEL;TYPE=CELL:{contactMobile};TEL;TYPE=WORK:{contactPhone};ORG:{contactCompany};EMAIL:{contactEmail};END:VCARD"
         if data:
             generateQRcode(data, "./static/sample.png")
     return render_template("contact.html", active="contact")
@@ -54,10 +54,10 @@ def wifi_page():
     if request.method == "POST":
         SSID = request.form.get("SSID")
         wifiPassword = request.form.get("wifiPassword")
-        wifiRadio = request.form.get("wifiRadio")
+        encryption = request.form.get("encryption")
 
-        data = f"WIFI:S:{SSID};T:{wifiRadio};P:{wifiPassword};;"
-        if SSID and wifiPassword and wifiRadio :
+        data = f"WIFI:S:{SSID};T:{encryption};P:{wifiPassword};;"
+        if SSID and wifiPassword and encryption :
             generateQRcode(data, "./static/sample.png")
     return render_template("wifi.html", active="wifi")
 
@@ -73,17 +73,17 @@ def image_page():
 def social_page():
     if request.method == "POST":
         if request.form.get("Twitter"):
-            data = f"https://twitter.com/{request.form.get('TwitterHandle')}"
+            data = f"https://twitter.com/{request.form.get('Twitter')}"
         elif request.form.get("Facebook"):
-            data = f"https://www.facebook.com/{request.form.get('FacebookUsername')}"
+            data = f"https://www.facebook.com/{request.form.get('Facebook')}"
         elif request.form.get("Whatsapp"):
-            data = f"https://wa.me/{request.form.get('WhatsappNumber')}"
+            data = f"https://wa.me/{request.form.get('Whatsapp')}"
         elif request.form.get("Snapchat"):
-            data = f"https://www.snapchat.com/add/{request.form.get('SnapchatUsername')}"
+            data = f"https://www.snapchat.com/add/{request.form.get('Snapchat')}"
         elif request.form.get("Instagram"):
-            data = f"https://www.instagram.com/{request.form.get('InstagramUsername')}"
+            data = f"https://www.instagram.com/{request.form.get('Instagram')}"
         elif request.form.get("Telegram"):
-            data = f"https://t.me/{request.form.get('TelegramUsername')}"
+            data = f"https://t.me/{request.form.get('Telegram')}"
         else:
             data = None
 
@@ -92,4 +92,3 @@ def social_page():
     
     return render_template("social.html", active="social")
 ##testing ..
-
