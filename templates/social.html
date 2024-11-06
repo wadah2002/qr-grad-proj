@@ -1,59 +1,70 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="text" placeholder="Twitter" />
-    <span class="icon is-small is-left">
-      <i class="fas fa-brands fa-twitter"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
+<form method="POST" action="/social">
+  <div class="field">
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" name="Twitter" type="text" placeholder="Twitter" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-brands fa-twitter"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </p>
+  </div>
 
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Facebook" />
-    <span class="icon is-small is-left">
-      <i class="fas fa-brands fa-facebook"></i>
-    </span>
-  </p>
-</div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" name="Facebook" type="text" placeholder="Facebook" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-brands fa-facebook"></i>
+      </span>
+    </p>
+  </div>
 
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Whatsapp" />
-    <span class="icon is-small is-left">
-      <i class="fas fa-brands fa-whatsapp"></i>
-    </span>
-  </p>
-</div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" name="Whatsapp" type="text" placeholder="Whatsapp" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-brands fa-whatsapp"></i>
+      </span>
+    </p>
+  </div>
 
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Snapchat" />
-    <span class="icon is-small is-left">
-      <i class="fas fa-brands fa-snapchat"></i>
-    </span>
-  </p>
-</div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" name="Snapchat" type="text" placeholder="Snapchat" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-brands fa-snapchat"></i>
+      </span>
+    </p>
+  </div>
 
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Instagram" />
-    <span class="icon is-small is-left">
-      <i class="fas fa-brands fa-instagram"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="text" placeholder="Telegram" />
-    <span class="icon is-small is-left">
-      <i class="fas fa-brands fa-telegram"></i>
-    </span>
-  </p>
-</div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" name="Instagram" type="text" placeholder="Instagram" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-brands fa-instagram"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" name="Telegram" type="text" placeholder="Telegram" />
+      <span class="icon is-small is-left">
+        <i class="fas fa-brands fa-telegram"></i>
+      </span>
+    </p>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <button type="submit" class="button is-medium is-primary is-fullwidth">
+        <span class="icon"><i class="fas fa-check"></i></span>
+        <span>Submit</span>
+      </button>
+    </div>
+  </div>
+</form>
 {% endblock %}
