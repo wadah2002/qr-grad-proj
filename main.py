@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect, url_for
+import re
 from qr2 import generateQRcode
 
 app = Flask(__name__)
 app.config.update(TEMPLATES_AUTO_RELOAD=True)
+app.secret_key = 'your_secret_key'
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -44,6 +46,12 @@ def contact_page():
         contactCompany = request.form.get("contactCompany")
         contactEmail = request.form.get("contactEmail")
 
+        app.logger.debug(f"FN: {contactFname}, LN: {contactLname}, Phone: {contactPhone}, Email: {contactEmail}")
+
+        if not contactFname or not contactLname or not contactPhone or not contactEmail :
+            flash("Please fill in the needed fields.", "error")
+            return redirect(url_for('contact_page')) 
+
         data = f"BEGIN:VCARD;VERSION:3.0;FN:{contactFname} {contactLname};N:{contactLname};{contactFname};;;TEL;TYPE=CELL:{contactMobile};TEL;TYPE=WORK:{contactPhone};ORG:{contactCompany};EMAIL:{contactEmail};END:VCARD"
         if data:
             generateQRcode(data, "./static/sample.png")
@@ -55,6 +63,18 @@ def wifi_page():
         SSID = request.form.get("SSID")
         wifiPassword = request.form.get("wifiPassword")
         encryption = request.form.get("encryption")
+
+        app.logger.debug(f"SSID: {SSID}, wifi: {wifiPassword}, encryption: {encryption}")
+
+
+        if not SSID or not wifiPassword or not encryption :
+            flash("Please fill in all fields.", "error")
+            return redirect(url_for('wifi_page'))
+        
+        # pattern = r'^[\s\S]{1,32}$'
+        # if not re.match(pattern, SSID):
+        #     flash("please enter a valid wifi address", "error")
+        #     return redirect(url_for('wifi_page'))
 
         data = f"WIFI:S:{SSID};T:{encryption};P:{wifiPassword};;"
         if SSID and wifiPassword and encryption :

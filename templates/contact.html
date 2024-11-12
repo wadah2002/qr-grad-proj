@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if get_flashed_messages() %}
+    <div class="notification is-danger">
+        {{ get_flashed_messages()[0] }}
+    </div>
+{% endif %}
 <form method="POST" action="/contact">
     <div class="columns">
         <div class="column">

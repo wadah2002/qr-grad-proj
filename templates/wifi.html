@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% if get_flashed_messages() %}
+    <div class="notification is-danger">
+        {{ get_flashed_messages()[0] }}
+    </div>
+{% endif %}
 <form method="POST" action="/wifi">
     <div class="field is-horizontal">
         <div class="field-label is-normal">
