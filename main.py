@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect,url_for
+import re
 from qr2 import generateQRcode
 
 app = Flask(__name__)
 app.config.update(TEMPLATES_AUTO_RELOAD=True)
-
+app.secret_key = 'your_secret_key'
 
 @app.route("/", methods=["GET", "POST"])
 def index_page():
@@ -28,8 +29,19 @@ def email_page():
         subject = request.form.get("subject")
         msg = request.form.get("msg")
 
+        app.logger.debug(f"Address: {address}, Subject: {subject}, Message: {msg}")
+
+        if not address or not subject or not msg:
+            flash("Please fill in all fields.", "error")
+            return redirect(url_for('email_page')) 
+        
+        pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        if not re.match(pattern, address):
+            flash("please enter a valid email address", "error")
+            return redirect(url_for('email_page'))
+
         data = f"MATMSG:TO:{address};SUB:{subject};BODY:{msg};;"
-        ##print(data)
+        
         if address and subject and msg:
             generateQRcode(data, "./static/sample.png")
     return render_template("email.html", active="email")
