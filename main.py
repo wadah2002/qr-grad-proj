@@ -49,8 +49,8 @@ def email_page():
 @app.route("/contact", methods=["GET", "POST"])
 def contact_page():
     if request.method == "POST":
-        contactFname = request.form.get("contactFname")
-        contactLname = request.form.get("contactLname")
+        contactFname = request.form.get("contactFname").strip()
+        contactLname = request.form.get("contactLname").strip()
         contactMobile = request.form.get("contactMobile")
         contactPhone = request.form.get("contactPhone")
         contactCompany = request.form.get("contactCompany")
@@ -58,8 +58,15 @@ def contact_page():
 
         app.logger.debug(f"FN: {contactFname}, LN: {contactLname}, Phone: {contactPhone}, Email: {contactEmail}")
 
-        if not contactFname or not contactLname or not contactPhone or not contactEmail :
-            flash("Please fill in the needed fields.", "error")
+        error_message = ""
+        if not contactFname:
+            error_message += "first name,"
+
+        if not contactLname:
+            error_message += "last name,"
+
+        if not (contactFname or contactLname):
+            flash("Please fill in the needed fields (" + error_message[0:-1] + ").", "error")
             return redirect(url_for('contact_page')) 
 
         data = f"BEGIN:VCARD;VERSION:3.0;FN:{contactFname} {contactLname};N:{contactLname};{contactFname};;;TEL;TYPE=CELL:{contactMobile};TEL;TYPE=WORK:{contactPhone};ORG:{contactCompany};EMAIL:{contactEmail};END:VCARD"
