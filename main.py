@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 from flask import Flask, render_template, request, flash, redirect, url_for
-=======
-from flask import Flask, render_template, request, flash, redirect,url_for
->>>>>>> 96c69397fc4b54957a122cdbc3bad3cf1139bcac
 import re
 from qr2 import generateQRcode
 
 app = Flask(__name__)
 app.config.update(TEMPLATES_AUTO_RELOAD=True)
 app.secret_key = 'your_secret_key'
-<<<<<<< HEAD
-
-=======
->>>>>>> 96c69397fc4b54957a122cdbc3bad3cf1139bcac
 
 @app.route("/", methods=["GET", "POST"])
 def index_page():
