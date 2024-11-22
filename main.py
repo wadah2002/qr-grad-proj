@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, send_file
 import re
 from qr2 import generateQRcode
 
@@ -130,4 +130,11 @@ def social_page():
             generateQRcode(data, "./static/sample.png")
     
     return render_template("social.html", active="social")
-##testing ..
+
+@app.route("/save-png")
+def save_png():
+    return send_file("./static/sample.png", as_attachment=True)
+
+@app.route("/save-svg")
+def save_svg():
+    return send_file("./static/sample.svg", as_attachment=True)
