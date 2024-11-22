@@ -109,20 +109,22 @@ def image_page():
 @app.route("/social", methods=["GET", "POST"])
 def social_page():
     if request.method == "POST":
-        if request.form.get("Twitter"):
-            data = f"https://twitter.com/{request.form.get('Twitter')}"
-        elif request.form.get("Facebook"):
-            data = f"https://www.facebook.com/{request.form.get('Facebook')}"
-        elif request.form.get("Whatsapp"):
-            data = f"https://wa.me/{request.form.get('Whatsapp')}"
-        elif request.form.get("Snapchat"):
-            data = f"https://www.snapchat.com/add/{request.form.get('Snapchat')}"
-        elif request.form.get("Instagram"):
-            data = f"https://www.instagram.com/{request.form.get('Instagram')}"
-        elif request.form.get("Telegram"):
-            data = f"https://t.me/{request.form.get('Telegram')}"
-        else:
-            data = None
+        twitter   = request.form.get("Twitter").strip()
+        facebook  = request.form.get("Facebook").strip()
+        whatsapp  = request.form.get("Whatsapp").strip()
+        snapchat  = request.form.get("Snapchat").strip()
+        instagram = request.form.get("Instagram").strip()
+        telegram  = request.form.get("Telegram").strip()
+
+        condition = bool(twitter) ^ bool(facebook) ^ bool(whatsapp) ^ bool(snapchat) ^ bool(instagram) ^ bool(telegram)
+
+        if not condition:
+            flash("Please input one social account!")
+            return redirect(url_for('social_page')) 
+
+        data = twitter + facebook + whatsapp + snapchat + instagram + telegram
+
+        print("data is: ", data)
 
         if data:
             generateQRcode(data, "./static/sample.png")
