@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, send_file
 import re
-from qr2 import generateQRcode
+from qr2 import generatePNG, generateSVG
 
 app = Flask(__name__)
 app.config.update(TEMPLATES_AUTO_RELOAD=True)
@@ -11,7 +11,8 @@ def index_page():
     if request.method == "POST":
         data = request.form.get("textInput")
         if data:
-            generateQRcode(data, "./static/sample.png")
+            generatePNG(data, "./static/sample.png")
+            generateSVG(data, "./static/sample.png")
     return render_template("index.html", active="text")
 
 @app.route("/url", methods=["GET", "POST"])
@@ -19,7 +20,8 @@ def url_page():
     if request.method == "POST":
         data = request.form.get("urlInput")
         if data:
-            generateQRcode(data, "./static/sample.png")
+            generatePNG(data, "./static/sample.png")
+            generateSVG(data, "./static/sample.png")
     return render_template("url.html", active="url")
 
 @app.route("/email", methods=["GET", "POST"])
@@ -43,7 +45,8 @@ def email_page():
         data = f"MATMSG:TO:{address};SUB:{subject};BODY:{msg};;"
         
         if address and subject and msg:
-            generateQRcode(data, "./static/sample.png")
+            generatePNG(data, "./static/sample.png")
+            generateSVG(data, "./static/sample.png")
     return render_template("email.html", active="email")
 
 @app.route("/contact", methods=["GET", "POST"])
@@ -71,7 +74,8 @@ def contact_page():
 
         data = f"BEGIN:VCARD;VERSION:3.0;FN:{contactFname} {contactLname};N:{contactLname};{contactFname};;;TEL;TYPE=CELL:{contactMobile};TEL;TYPE=WORK:{contactPhone};ORG:{contactCompany};EMAIL:{contactEmail};END:VCARD"
         if data:
-            generateQRcode(data, "./static/sample.png")
+            generatePNG(data, "./static/sample.png")
+            generateSVG(data, "./static/sample.png")
     return render_template("contact.html", active="contact")
 
 @app.route("/wifi", methods=["GET", "POST"])
@@ -87,15 +91,11 @@ def wifi_page():
         if not SSID or not wifiPassword or not encryption :
             flash("Please fill in all fields.", "error")
             return redirect(url_for('wifi_page'))
-        
-        # pattern = r'^[\s\S]{1,32}$'
-        # if not re.match(pattern, SSID):
-        #     flash("please enter a valid wifi address", "error")
-        #     return redirect(url_for('wifi_page'))
-
+       
         data = f"WIFI:S:{SSID};T:{encryption};P:{wifiPassword};;"
         if SSID and wifiPassword and encryption :
-            generateQRcode(data, "./static/sample.png")
+            generatePNG(data, "./static/sample.png")
+            generateSVG(data, "./static/sample.png")
     return render_template("wifi.html", active="wifi")
 
 @app.route("/image", methods=["GET", "POST"])
@@ -103,7 +103,8 @@ def image_page():
     if request.method == "POST":
         data = request.form.get("imgInput")
         if data:
-            generateQRcode(data, "./static/sample.png")
+            generatePNG(data, "./static/sample.png")
+            generateSVG(data, "./static/sample.png")
     return render_template("image.html", active="image")
 
 @app.route("/social", methods=["GET", "POST"])
@@ -127,8 +128,8 @@ def social_page():
         print("data is: ", data)
 
         if data:
-            generateQRcode(data, "./static/sample.png")
-    
+            generatePNG(data, "./static/sample.png")
+            generateSVG(data, "./static/sample.png")
     return render_template("social.html", active="social")
 
 @app.route("/save-png")
