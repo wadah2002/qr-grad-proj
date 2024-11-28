@@ -98,15 +98,6 @@ def wifi_page():
             generateSVG(data, "./static/sample.png")
     return render_template("wifi.html", active="wifi")
 
-@app.route("/image", methods=["GET", "POST"])
-def image_page():
-    if request.method == "POST":
-        data = request.form.get("imgInput")
-        if data:
-            generatePNG(data, "./static/sample.png")
-            generateSVG(data, "./static/sample.png")
-    return render_template("image.html", active="image")
-
 @app.route("/social", methods=["GET", "POST"])
 def social_page():
     if request.method == "POST":
